@@ -14,8 +14,8 @@ namespace IndianCensusTestProject
         string IndiastateCensusPath = @"G:\shabana\IndianCensusPrograms\IndianCensusPrograms\IndianCensusPrograms\CSVFiles\IndianPopulation.csv";
         string GivenWrongFilePath = @"G:\shabana\IndianCensusPrograms\IndianCensusPrograms\IndianCensusPrograms\CSVFiles\IndiaStateCode1.csv";
         string WrongFilePath = @"G:\shabana\IndianCensusPrograms\IndianCensusPrograms\IndianCensusPrograms\CSVFiles\IndianPopulation.txt";
-        string WrongDelimiterType = @"G:\shabana\IndianCensusPrograms\IndianCensusPrograms\IndianCensusPrograms\CSVFiles\DelimiterIndiaStateCensusData.csv";
-        string WrongHeaderType = @"G:\shabana\IndianCensusPrograms\IndianCensusPrograms\IndianCensusPrograms\CSVFiles\WrongIndiaSensusData.csv";
+        string WrongDelimiterType = @"G:\shabana\IndianCensusPrograms\IndianCensusPrograms\IndianCensusPrograms\CSVFiles\WrongDelimiterIndiaStateCensus.csv";
+        string WrongHeaderType = @"G:\shabana\IndianCensusPrograms\IndianCensusPrograms\IndianCensusPrograms\CSVFiles\WrongIndiaStateCensusData.csv";
         [TestInitialize]
         public void setup()
         {
@@ -79,7 +79,7 @@ namespace IndianCensusTestProject
         [TestMethod]
         public void GivenWrongDelimiterReturnCustomException()
         {
-            string expected = "File contains Wrong Delimiter";
+            string expected = "File Contains Wrong Delimiter";
             var ex = Assert.ThrowsException<CensusAnalyserException>(() => csv.LoadCsvData(CensusAnalyser.Country.INDIA, WrongDelimiterType, "State,Population,AreaInSqKm,DensityPerSqKm"));
             Assert.AreEqual(expected, ex.Message);
             Console.WriteLine(ex.Message);
